@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "farplayers",
+  "version": "${version}",
+  "name": "FarPlayers",
+  "description": "Renders other players up to 32 chunks away regardless of your terrain render distance, so distant players stay visible even over unloaded chunks. Configurable distance. Anonymous opt-out telemetry, on by default.",
+  "authors": [
+    "Zeffut"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/farplayers",
+    "sources": "https://github.com/Zeffut/farplayers"
+  },
+  "license": "LicenseRef-PolyForm-Noncommercial-1.0.0",
+  "environment": "client",
+  "icon": "assets/farplayers/icon.png",
+  "entrypoints": {
+    "client": [
+      "fr.zeffut.farplayers.fabric.FarPlayersFabric"
+    ]
+  },
+  "mixins": [
+    "farplayers.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18.0",
+    "minecraft": "${mc_range}"
+  }
+}

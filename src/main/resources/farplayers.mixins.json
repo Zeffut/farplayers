@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "fr.zeffut.farplayers.mixin",
+  "compatibilityLevel": "${mixin_compat}",
+  "client": [
+    "EntityRenderDistanceMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

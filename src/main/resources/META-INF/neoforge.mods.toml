@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "LicenseRef-PolyForm-Noncommercial-1.0.0"
+
+[[mixins]]
+config = "farplayers.mixins.json"
+
+[[mods]]
+modId = "farplayers"
+version = "${version}"
+displayName = "FarPlayers"
+description = "Renders other players up to 32 chunks away regardless of your terrain render distance, so distant players stay visible even over unloaded chunks. Configurable distance. Anonymous opt-out telemetry, on by default."
+authors = "Zeffut"
+logoFile = "assets/farplayers/icon.png"
+
+[[mods."farplayers".dependencies]]
+modId = "neoforge"
+type = "required"
+versionRange = "[0,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[mods."farplayers".dependencies]]
+modId = "minecraft"
+type = "required"
+versionRange = "[0,)"
+ordering = "NONE"
+side = "CLIENT"
