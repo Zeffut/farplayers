@@ -48,6 +48,10 @@ dependencies {
     // Pure Mixin mod: only fabric-loader is required (it bundles SpongePowered Mixin). No
     // fabric-api dependency, so the mod stays light and does not force fabric-api on users.
     add("modImplementation", "net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
+
+    // MixinExtras (@ModifyExpressionValue / @Local). Bundled & active at runtime by fabric-loader,
+    // so we only need it on the compile classpath.
+    add("compileOnly", "io.github.llamalad7:mixinextras-common:0.5.4")
 }
 
 loom.runs.named("client") {

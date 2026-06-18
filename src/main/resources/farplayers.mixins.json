@@ -6,7 +6,8 @@
   "client": [
     "EntityRenderDistanceMixin",
     "ClientViewDistanceMixin",
-    "EntitySectionGateMixin"
+    "EntitySectionGateMixin",
+    "EntityLightMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -36,6 +36,13 @@ neoForge.apply {
     }
 }
 
+dependencies {
+    // MixinExtras (@ModifyExpressionValue / @Local). Bundled & active at runtime by NeoForge,
+    // so we only need it on the compile classpath. Generic add(...) avoids relying on DSL accessors
+    // that Gradle does not generate for Stonecutter's non-`build.gradle.kts` buildscripts.
+    add("compileOnly", "io.github.llamalad7:mixinextras-common:0.5.4")
+}
+
 // Compile the Stonecutter-processed sources (where the inactive loader is commented out),
 // not the raw shared `src/main`. generatedSourcesDir = versions/<node>/build/generated/stonecutter/.
 sourceSets.named("main") {
