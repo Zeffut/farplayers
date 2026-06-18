@@ -46,7 +46,7 @@ public abstract class ClientViewDistanceMixin {
 
     //? if fabric {
     //? if >=26.1 {
-    /*@ModifyArg(method = "buildPlayerInformation", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ClientInformation;<init>(Ljava/lang/String;ILnet/minecraft/world/entity/player/ChatVisiblity;ZILnet/minecraft/world/entity/HumanoidArm;ZZLnet/minecraft/world/entity/player/ParticleStatus;)V"), index = 1)
+    /*@ModifyArg(method = "buildPlayerInformation", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ClientInformation;<init>(Ljava/lang/String;ILnet/minecraft/world/entity/player/ChatVisiblity;ZILnet/minecraft/world/entity/HumanoidArm;ZZLnet/minecraft/server/level/ParticleStatus;)V"), index = 1)
     *///?} else {
     @ModifyArg(
             method = "getSyncedOptions",
@@ -55,7 +55,7 @@ public abstract class ClientViewDistanceMixin {
     //?}
     //?}
     //? if neoforge {
-    /*@ModifyArg(method = "buildPlayerInformation", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ClientInformation;<init>(Ljava/lang/String;ILnet/minecraft/world/entity/player/ChatVisiblity;ZILnet/minecraft/world/entity/HumanoidArm;ZZLnet/minecraft/world/entity/player/ParticleStatus;)V"), index = 1)*/
+    /*@ModifyArg(method = "buildPlayerInformation", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ClientInformation;<init>(Ljava/lang/String;ILnet/minecraft/world/entity/player/ChatVisiblity;ZILnet/minecraft/world/entity/HumanoidArm;ZZLnet/minecraft/server/level/ParticleStatus;)V"), index = 1)*/
     //?}
     private int farplayers$inflateReportedViewDistance(int original) {
         return FarPlayers.serverViewDistance(original);

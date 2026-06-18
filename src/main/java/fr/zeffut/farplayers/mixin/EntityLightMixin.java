@@ -35,13 +35,13 @@ public abstract class EntityLightMixin {
 
     //? if fabric {
     //? if >=26.1 {
-    /*@Inject(method = "MOJMAP_TODO_getLight", at = @At("TAIL"), cancellable = true)
+    /*@Inject(method = "getPackedLightCoords", at = @At("TAIL"), cancellable = true)
     *///?} else {
     @Inject(method = "getLight", at = @At("TAIL"), cancellable = true)
     //?}
     //?}
     //? if neoforge {
-    /*@Inject(method = "MOJMAP_TODO_getLight", at = @At("TAIL"), cancellable = true)*/
+    /*@Inject(method = "getPackedLightCoords", at = @At("TAIL"), cancellable = true)*/
     //?}
     private void farplayers$fullbrightDarkPlayers(Entity entity, float tickDelta,
                                                   CallbackInfoReturnable<Integer> cir) {
@@ -57,15 +57,15 @@ public abstract class EntityLightMixin {
         /*if (!(entity instanceof AbstractClientPlayer)) return;*/
         //?}
         if (cir.getReturnValueI() == 0) {
-            //? if fabric {
             //? if >=26.1 {
-            /*cir.setReturnValue(net.minecraft.client.renderer.LightTexture.FULL_BRIGHT);
+            /*cir.setReturnValue(net.minecraft.util.LightCoordsUtil.FULL_BRIGHT);
             *///?} else {
+            //? if fabric {
             cir.setReturnValue(net.minecraft.client.render.LightmapTextureManager.MAX_LIGHT_COORDINATE);
-            //?}
             //?}
             //? if neoforge {
             /*cir.setReturnValue(net.minecraft.client.renderer.LightTexture.FULL_BRIGHT);*/
+            //?}
             //?}
         }
     }
