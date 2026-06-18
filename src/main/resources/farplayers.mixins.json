@@ -4,7 +4,9 @@
   "package": "fr.zeffut.farplayers.mixin",
   "compatibilityLevel": "${mixin_compat}",
   "client": [
-    "EntityRenderDistanceMixin"
+    "EntityRenderDistanceMixin",
+    "ClientViewDistanceMixin",
+    "EntitySectionGateMixin"
   ],
   "injectors": {
     "defaultRequire": 1

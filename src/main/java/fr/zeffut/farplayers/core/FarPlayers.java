@@ -22,7 +22,10 @@ public final class FarPlayers {
 
     private static final int DEFAULT_CHUNKS = 32;
     private static final int MIN_CHUNKS = 1;
-    private static final int MAX_CHUNKS = 64;
+    // Hard server ceiling: the server clamps a player's tracking/view distance to 32 chunks
+    // (ChunkMap watchDistance clamp + PLAYER entity tracking range), so a client mod can never make
+    // other players render farther than 32 chunks. Values above 32 are pointless.
+    private static final int MAX_CHUNKS = 32;
 
     private static volatile boolean enabled = true;
     private static volatile int distanceChunks = DEFAULT_CHUNKS;
@@ -86,6 +89,20 @@ public final class FarPlayers {
                     Map.of("render_distance_chunks", distanceChunks));
         }
         return true;
+    }
+
+    /**
+     * View distance the client should REPORT to the server, given its real local terrain render
+     * distance. We report {@code max(localRenderDistance, distanceChunks)} (capped at the 32-chunk
+     * server ceiling) so the server tracks and sends other players that far, while the local terrain
+     * render distance is left untouched (FPS preserved). On a dedicated server this is further
+     * clamped to the server's own view-distance — the client can never exceed it.
+     *
+     * @param localRenderDistance the player's actual render-distance option (what vanilla would report)
+     */
+    public static int serverViewDistance(int localRenderDistance) {
+        if (!enabled) return localRenderDistance;
+        return clamp(Math.max(localRenderDistance, distanceChunks), 2, MAX_CHUNKS);
     }
 
     private static int clamp(int v, int lo, int hi) {
