@@ -114,10 +114,11 @@ if (modrinthToken.isPresent) {
         file.set(tasks.named<net.fabricmc.loom.task.RemapJarTask>("remapJar").flatMap { it.archiveFile })
         displayName.set("${property("mod.name")} ${property("mod.version")} (Fabric $mcVersion)")
         version.set("${property("mod.version")}+fabric-$mcVersion")
+        changelog.set("Initial release. See other players up to 32 chunks away, independent of your terrain render distance (bounded by the server's view distance).")
         type = me.modmuss50.mpp.ReleaseType.STABLE
         modLoaders.add("fabric")
         modrinth {
-            projectId.set("farplayers")
+            projectId.set("UvvG2PsB")
             accessToken.set(modrinthToken)
             minecraftVersions.add(mcVersion)
         }

@@ -102,10 +102,11 @@ if (modrinthToken.isPresent) {
         file.set(tasks.named<Jar>("jar").flatMap { it.archiveFile })
         displayName.set("${property("mod.name")} ${property("mod.version")} (NeoForge $mcVersion)")
         version.set("${property("mod.version")}+neoforge-$mcVersion")
+        changelog.set("Initial release. See other players up to 32 chunks away, independent of your terrain render distance (bounded by the server's view distance).")
         type = me.modmuss50.mpp.ReleaseType.STABLE
         modLoaders.add("neoforge")
         modrinth {
-            projectId.set("farplayers")
+            projectId.set("UvvG2PsB")
             accessToken.set(modrinthToken)
             minecraftVersions.add(mcVersion)
         }
